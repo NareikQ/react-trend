@@ -113,6 +113,7 @@ class Trend extends Component {
       padding,
       radius,
       gradient,
+      fill
     } = this.props;
 
     // We need at least 2 points to draw a graph.
@@ -166,7 +167,8 @@ class Trend extends Component {
           ref={(elem) => { this.path = elem; }}
           id={`react-trend-${this.trendId}`}
           d={path}
-          fill="none"
+          fill={fill ? gradient[0] : "none"}
+          fill-opacity="0.4"
           stroke={gradient ? `url(#${this.gradientId})` : undefined}
         />
       </svg>
